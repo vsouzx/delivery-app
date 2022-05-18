@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.anhembi.iHealth.modelo.Posto;
@@ -107,6 +108,13 @@ public class UserPostosController {
 		List<Remedio> postoRemedios = posto.getRemedios();
 		mv.addObject("postoRemedios", postoRemedios);
 		return mv;
+	}
+	
+	@GetMapping(value = "imagemPosto/{id}")
+	@ResponseBody
+	public byte[] exibirImagemd(@PathVariable("id") Long id) {
+		Posto posto = this.postoRepository.getById(id);
+		return posto.getUrlImagemPosto();
 	}
 
 }

@@ -33,14 +33,9 @@ public class MyErrorController implements ErrorController{
 	UserRepository userRepository;
 	
 	@RequestMapping("/error")
-    public String handleError(HttpServletRequest request, Model model, Principal principal) {
+    public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 
-        String username = principal.getName();
-		model.addAttribute("username", username);
-		
-		User user = userRepository.findByCpf(username);
-		model.addAttribute("user", user);
 		
         if (status != null) {
             int statusCode = Integer.parseInt(status.toString());
