@@ -285,6 +285,15 @@ public class UserPedidoController {
 		Pedido pedido = this.pedidoRepository.getById(id);
 		return pedido.getReceitaMedica();
 	}
+	
+
+	@GetMapping(value = "/remedio/imagem/{id}")
+	@ResponseBody
+	public byte[] exibirImagemRemedio(@PathVariable("id") Long id) {
+		Remedio remedio = this.remedioRepository.getById(id);
+		return remedio.getImagem();
+	}
+	
 }
 
 
