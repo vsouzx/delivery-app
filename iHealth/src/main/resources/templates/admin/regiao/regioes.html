@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+
+<body>
+	<div th:replace="~{templates :: header}"></div>
+
+	<div class="container">
+
+		<div style="overflow: scroll;" class="mt-3">
+			<table class="table table-stripped shadow-nova card-descricao">
+				<thead class="table-light">
+					<tr style="text-align: center">
+						<th scope="col">Id</th>
+						<th scope="col">Nome</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Excluir</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr style="text-align: center" th:each="regiao : ${regioes}">
+						<td th:text="${regiao.id}">User ID</td>
+						<td th:text="${regiao.nome}">Nome</td>
+						<td><a  th:href="@{/admin/editarRegiao/{id}(id=${regiao.id})}" class="btn card-button "><i class="fas fa-pen edit-icon"></i></a></td>
+						<td><a th:href="@{/admin/deletarRegiao/{id}(id=${regiao.id})}" class="btn card-button "><i class="fas fa-trash delete-icon"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div>
+			<a th:href="@{/admin/cadastroRegiaoForm}"
+				class="btn btn-outline-primary mb-3 card-button shadow-nova"><i class="fas fa-map-pin m-2 mt-0 mb-0"></i>Nova região</a>
+		</div>
+		<div>
+			<a th:href="@{/home}"
+				class="btn btn-outline-dark mb-3 card-button shadow-nova">Voltar para o menu</a>
+		</div>
+	</div>
+
+	<footer th:replace="~{templates :: footer}"></footer>
+	
+</body>
+</html>

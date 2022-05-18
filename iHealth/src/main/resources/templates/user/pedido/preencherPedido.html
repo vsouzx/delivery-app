@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+<body>
+
+	<div th:replace="~{templates :: header}"></div>
+
+	<div class="container">
+
+		<h1 style="font-size: 1.3em" class="text-center mb-3">
+			Número do pedido: <span th:text="${pedido.id}"></span>
+		</h1>
+
+		<form class="mb-3 text-center"th:action="@{/user/associarRemedioPedido(idPedido=${pedido.id})}"method="POST">
+			<div class="row">
+				<div class="col-7">
+					<select name="id" class="form-select card-descricao" required>
+						<option value="">Clique e solicite um remédio...</option>
+						<option th:each="remedio :  ${remedios}" th:value="${remedio.id}" th:text="${remedio.nome}"></option>
+					</select> 
+				</div>
+				<div class="col-5">
+					<input type="submit" class="btn btn-outline-success card-button" value="Solicitar">
+				</div>
+				
+			</div>
+		</form>
+		
+		<hr>
+
+		<div class="card mb-3 shadow-nova">
+
+			<div class="card-header card-descricao"><b>Lista de remédios a serem solicitados</b></div>
+				<nav th:each="remedio : ${pedidoRemedios}" class="navbar navbar-light bg-light card-descricao p-2">
+					<span th:text="${remedio.nome}"
+						class=""></span>
+					
+					<a class="navbar-brand" href="#"> <img class="p-0 m-0"
+						alt="Image" th:src="@{/admin/imagem/{id}(id=${remedio.id})}"
+						width="30" height="35" /> 
+					</a>
+					
+				</nav>
+		</div>
+	
+		<hr>
+
+		<form th:object="${pedido}" class="mb-3 text-center"
+			th:action="@{/user/salvarPedido/{id}(id=${pedido.id})}" method="POST"  enctype="multipart/form-data">
+			
+			<input type="hidden" th:field="*{id}"/>
+			<div class=" col-12 col-sm-12">
+				<label class="col-form-label card-descricao" for="anexo">Anexe
+					a imagem da receita médica (obrigatório)</label>
+			</div>
+			<div class="col-12 col-sm-12 mb-3">
+				<input class="form-control card-descricao  shadow-nova" type="file" id="anexo"
+					name="anexoReceita" required/>
+			</div>
+
+			<div class="mb-3">
+				<button type="submit" class="btn btn-outline-primary card-button mb-3"
+					style="width: 100%">Salvar pedido</button>
+				<a th:href="@{/user/cancelarPedido/{id}(id=${pedido.id})}" class="btn btn-outline-danger card-button mb-3"><i class="fas fa-ban m-2 mt-0 mb-0"></i>Cancelar</a>
+			</div>
+			
+		</form>
+	</div>
+
+	<footer th:replace="~{templates :: footer}"></footer>
+
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+
+<body>
+	<div th:replace="~{templates :: header}"></div>
+
+	<div class="container">
+
+		<div class="text-center">
+			<h4>Editar posto de saúde</h4>
+		</div>
+		<div class="card shadow-nova mb-3">
+			<div class="card-body">
+				<form th:object="${posto}" method="POST"
+					th:action="@{/admin/atualizarPosto}" enctype="multipart/form-data">
+					<div>
+						<input class="form-control" type="hidden" th:field="*{id}"/>
+						<input class="form-control" type="hidden" th:field="*{remedios}"/>
+						<div class="form-group row mb-3 ">
+							<div class="col-12 col-sm-12">
+								<label class="col-form-label">Nome</label>
+							</div>
+
+							<div class="col-12 col-sm-12">
+								<input class="form-control shadow-nova" type="text" th:field="*{nome}" required/>
+								
+							</div>
+						</div>
+						<div class="form-group row mb-3 ">
+							<div class="col-12 col-sm-12">
+								<label class="col-form-label">Endereço</label>
+							</div>
+
+							<div class="col-12 col-sm-12">
+								<input class="form-control shadow-nova" type="text" th:field="*{endereco}" required/>
+							</div>
+						</div>
+						
+						<div class="form-group row mb-3 ">
+							<div class="col-12 col-sm-12">
+								<label class="col-form-label">URL localização maps</label>
+							</div>
+
+							<div class="col-12 col-sm-12">
+								<input class="form-control shadow-nova" type="text" th:field="*{urlMapa}" required/>
+							</div>
+						</div>
+						<div class="form-group row mb-3">
+							<div class="col-12">
+								<label class="col-form-label">Região</label>
+							</div>
+							<div class="">
+								<select class="form-select shadow-nova" name="regiaoFile" required>
+									<option class="text-transparent" th:text="${posto.regiao.nome}" selected></option>
+									<option  th:each="regiao : ${regioes}" th:text="${regiao.nome}" ></option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group row mb-3">
+							<div class=" col-12 col-sm-12">
+								<label class="col-form-label" for="imagem">Imagem do posto</label>
+							</div>
+							<div class="col-12 col-sm-12">
+								<input class="form-control shadow-nova" type="file" id="imagem" name="imagemFile" required/>
+							</div>
+						</div>
+						
+						
+						<div class="mb-3">
+							<button type="submit" class="btn btn-outline-primary card-button shadow-nova"
+								style="width: 100%">Cadastrar</button>
+						</div>
+
+						<div class="mb-3">
+							<a class="btn btn-outline-dark card-button shadow-nova"
+								th:href="@{/admin/postos}" style="width: 100%">Voltar</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<footer th:replace="~{templates :: footer}"></footer>
+</body>
+</html>

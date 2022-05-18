@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container">
+		
+		<a th:href="@{/home}" class="btn btn-outline-dark card-button mb-3 shadow-nova">Voltar</a>
+		
+		<nav class="navbar card-descricao navbar-dark navbar-expand d-flex justify-content-center letter-size bg-dark" >
+			<div class="navbar navbar-nav ">
+	      		<a th:classappend="${url} == 'todos' ? 'active'"class="nav-item nav-link" th:href="@{/admin/pedidosAdmin}">Todos</a>
+		        <a th:classappend="${url} == 'aceitos' ? 'active'"class="nav-item nav-link" th:href="@{/admin/pedidosAdmin/aceitos}">Aceitos</a>
+		        <a th:classappend="${url} == 'recusados' ? 'active'"class="nav-item nav-link" th:href="@{/admin/pedidosAdmin/recusados}">Recusados</a>	
+		        <a th:classappend="${url} == 'analise' ? 'active'"class="nav-item nav-link" th:href="@{/admin/pedidosAdmin/analise}">Em análise</a>
+		        <a th:classappend="${url} == 'entregues' ? 'active'"class="nav-item nav-link" th:href="@{/admin/pedidosAdmin/entregues}">Entregue</a>
+			</div>	  					
+		</nav>
+			<div class="card text-center">
+			 	<div class="card-body">
+			 		<div class="row">
+						<div class="col-12 ">
+							<div class="text-danger card-descricao">Não existem pedidos <span th:text="${url}"></span> :(</div>
+						</div>
+					</div>
+			 	</div>			
+			</div>
+			
+		</div>
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>
+	

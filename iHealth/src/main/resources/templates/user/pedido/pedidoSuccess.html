@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+	
+		<div class="container text-center">
+			<h2 class="mb-3">Pedido feito com sucesso! </h2>
+			<h2 class="mb-3 telas-vazio-fontsize"> Aguarde para ser aprovado ou reprovado.</h2>
+			<form method="POST" th:action="@{/user/gerarPedido}" enctype="multipart/form-data">
+				<button type="submit" class="btn btn-outline-primary card-button mb-3"><i class="fas fa-plus  m-2 mt-0 mb-0"></i> Nova solicitação</button>
+			</form>	
+			<a th:href="@{/user/pedidos}" class="btn btn-outline-primary mb-3 card-button shadow-nova"><i class="fas fa-list m-2 mt-0 mb-0"></i>Lista de pedidos</a>
+			<a th:href="@{/home}" class="btn btn-outline-dark mb-3 card-button shadow-nova">Voltar para menu</a>
+		</div>
+		
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>

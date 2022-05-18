@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container">
+			<div class="text-center" >
+				<h1 style="font-size: 1.3em">Contate-nos!</h1>
+				<p class="card-descricao">Obrigado por nos contatar. Vamos te retornar o mais rápido possível!</p>
+			</div>
+			
+			<a th:href="@{/contato}" class="btn btn-outline-primary mb-3 card-button shadow-nova">Novo e-mail</a>
+			<a th:href="@{/home}" class="btn btn-outline-dark mb-3 card-button shadow-nova">Voltar para menu</a>
+		</div>
+		
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+	
+		<div class="container text-center">
+			<h2 class="mb-3 card-descricao"> Região cadastrada com sucesso! 😉</h2>
+			<a th:href="@{/admin/cadastroRegiaoForm}" class="btn btn-success mb-3 card-button shadow-nova">Nova região</a>
+			<a th:href="@{/admin/regioes}" class="btn btn-primary mb-3 card-button shadow-nova">Lista de regiões</a>
+			<a th:href="@{/home}" class="btn btn-secondary mb-3 card-button shadow-nova">Voltar para menu</a>
+		</div>
+	</body>
+	
+	<footer th:replace="~{templates :: footer}"></footer>
+</html>

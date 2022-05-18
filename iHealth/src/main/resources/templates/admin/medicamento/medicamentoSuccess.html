@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+	
+		<div class="container text-center">
+			<h2 class="mb-3 telas-vazio-fontsize"> Remédio cadastrado com sucesso! 😉</h2>
+			<a th:href="@{/admin/cadastroMedicamentoForm}" class="btn btn-outline-success mb-3 card-button shadow-nova">Novo remédio</a>
+			<a th:href="@{/admin/medicamentos}" class="btn btn-outline-primary mb-3 card-button shadow-nova">Lista de remédios</a>
+			<a th:href="@{/home}" class="btn btn-outline-dark mb-3 card-button shadow-nova">Voltar para menu</a>
+		</div>
+		
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	<body>
+
+	<div th:replace="~{templates :: header}"></div>
+	
+	<div class="container">
+			
+			<h1 style="font-size: 1.3em" class="text-center" th:text="${posto.nome}"></h1>
+			
+			<form class="mb-3 text-center welcome-text" th:action="@{/admin/associarRemedioPosto(idPosto=${posto.id})}" method="POST">
+				<label><b>Remédios:</b></label>
+				<select name="id" required>
+					<option value="">Escolha o remédio</option>
+					<option th:each="remedio :  ${remedios}"
+							th:value="${remedio.id}"
+							th:text="${remedio.nome}">
+					</option>
+				</select>
+				<input type="submit" value="Associar remedio">
+			</form>
+			
+			<table class="table table-stripped shadow-nova">
+				<thead class="table-light">
+					<tr style="text-align: center">
+						<th scope="col">Id</th>
+						<th scope="col">Nome</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr style="text-align: center" th:each="remedio : ${postoRemedios}">
+						<td th:text="${remedio.id}">User ID</td>
+						<td th:text="${remedio.nome}">Nome</td>
+					</tr>
+				</tbody>
+			</table>		
+			
+			<a th:href="@{/admin/postos}" class="btn btn-outline-dark card-button shadow-nova mb-3">Voltar para lista de postos</a>
+	</div>
+	
+	<footer th:replace="~{templates :: footer}"></footer>
+	
+	
+</body>
+</html>

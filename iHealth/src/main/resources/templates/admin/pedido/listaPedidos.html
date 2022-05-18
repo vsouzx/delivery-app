@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+<body>
+
+	<div th:replace="~{templates :: header}"></div>
+	
+	<div class="container ">
+	
+	<a th:href="@{/home}" class="btn btn-outline-dark card-button mb-3 shadow-nova ">Voltar</a>
+	
+		<nav class="navbar card-descricao  navbar-dark navbar-expand d-flex justify-content-center bg-dark" >
+			<div class="navbar navbar-nav ">
+	      		<a th:classappend="${url} == 'todos' ? 'active'"class="nav-item nav-link" th:href="@{/admin/pedidosAdmin}">Todos</a>
+		        <a th:classappend="${url} == 'aceitos' ? 'active'"class="nav-item nav-link" th:href="@{/admin/pedidosAdmin/aceitos}">Aceitos</a>
+		        <a th:classappend="${url} == 'recusados' ? 'active'"class="nav-item nav-link" th:href="@{/admin/pedidosAdmin/recusados}">Recusados</a>	
+		        <a th:classappend="${url} == 'analise' ? 'active'"class="nav-item nav-link" th:href="@{/admin/pedidosAdmin/analise}">Em análise</a>
+		        <a th:classappend="${url} == 'entregues' ? 'active'"class="nav-item nav-link" th:href="@{/admin/pedidosAdmin/entregues}">Entregue</a>
+			</div>	  					
+		</nav>
+	
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6"  th:each="pedido : ${pedidos}">
+				<div class="card mb-3 shadow-nova">
+				<div th:switch="${pedido.status.name}">
+					<div th:case="'EM ANALISE'">
+						<b><div class="card-header bg-warning">Pedido nº <span th:text="${pedido.id}"></span></div></b>
+					</div>
+					<div th:case="'ACEITO'">
+						<b><div class="card-header bg-success text-white">Pedido nº<span th:text="${pedido.id}"></span></div></b>
+					</div>
+					<div th:case="'RECUSADO'" >
+						<b><div class="card-header bg-danger text-white">Pedido nº <span th:text="${pedido.id}"></span></div></b>
+					</div>
+					<div th:case="'ENTREGUE'">
+						<b><div class="card-header bg-secondary text-white">Pedido nº <span th:text="${pedido.id}"></span></div></b>
+					</div>
+				</div>
+				
+				<div class="card-body text-center">
+					<p>Status: <b><span th:text="${pedido.status.name}"></span></b></p>
+					
+					<img class="mb-3 img-receita" alt="Image" th:src="@{/user/imagem/{id}(id=${pedido.id})}" width="300" height="210" />
+					
+					<a th:href="@{/admin/detalhePedido/{id}(id=${pedido.id})}" class="btn btn-outline-dark card-button mb-3"><i class="fas fa-pen edit-icon text-white m-2 mt-0 mb-0"></i>Analisar e alterar situação do pedido</a>
+					<div th:switch="${pedido.status.name}">
+						<div th:case="'EM ANALISE'">
+							<a th:href="@{/admin/excluirPedido/{id}(id=${pedido.id})}" class="btn card-button "><i class="fas fa-trash delete-icon"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>	
+			
+	<hr>
+	</div>
+	<footer th:replace="~{templates :: footer}"></footer>
+
+
+</body>
+</html>

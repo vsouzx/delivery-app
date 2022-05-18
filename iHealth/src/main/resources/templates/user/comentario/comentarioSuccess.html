@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+	
+		<div class="container text-center">
+			<h2 class="mb-3">Dúvida/Sugestão enviada com sucesso! </h2>
+			<a th:href="@{/comentario/homeComentarios}" class="btn btn-outline-primary mb-3 card-button shadow-nova"><i class="fas fa-list m-2 mt-0 mb-0"></i>Ver comentários</a>
+			<a th:href="@{/home}" class="btn btn-outline-dark mb-3 card-button shadow-nova">Voltar para menu</a>
+		</div>
+		
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>

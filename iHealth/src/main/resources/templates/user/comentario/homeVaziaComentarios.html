@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	<body>
+
+	<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container"> 
+			<div class="card shadow p-3 mb-5 bg-body rounded"  sec:authorize="hasAuthority('USER')">
+			
+			<a th:href="@{/comentario/formComentario}" class="btn btn-success text-uppercase" >Fazer um comentário</a>				
+			</div>
+			
+			<div class="text-center mensagem-homevazia text-uppercase">
+				<h5 class="text-danger">Ainda não possui nenhum comentário.</h5>
+			</div>
+			<a th:href="@{/home}" class="btn btn-outline-dark card-button mt-3 mb-3 shadow-nova">Voltar</a>
+			</div>
+			<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

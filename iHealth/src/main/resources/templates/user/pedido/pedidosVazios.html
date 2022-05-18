@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container">
+		
+		<a th:href="@{/home}" class="btn btn-outline-dark card-button mb-3">Voltar</a>
+		
+		<nav class="navbar card-descricao navbar-dark navbar-expand d-flex justify-content-center letter-size bg-dark" >
+			<div class="navbar navbar-nav ">
+	      		<a th:classappend="${url} == 'todos' ? 'active'"class="nav-item nav-link" th:href="@{/user/pedidos}">Todos</a>
+		        <a th:classappend="${url} == 'aceitos' ? 'active'"class="nav-item nav-link" th:href="@{/user/pedidos/aceitos}">Aceitos</a>
+		        <a th:classappend="${url} == 'recusados' ? 'active'"class="nav-item nav-link" th:href="@{/user/pedidos/recusados}">Recusados</a>	
+		        <a th:classappend="${url} == 'analise' ? 'active'"class="nav-item nav-link" th:href="@{/user/pedidos/analise}">Em análise</a>
+		        <a th:classappend="${url} == 'entregues' ? 'active'"class="nav-item nav-link" th:href="@{/user/pedidos/entregues}">Entregue</a>
+			</div>	  					
+		</nav>
+			<div class="card text-center">
+			 	<div class="card-body">
+			 		<div class="row">
+						<div class="col-12">
+							<h2 class="telas-vazio-fontsize">Não há nenhum pedido na sua lista.</h2>
+						</div>
+						<div class="col-12 mt-3 ">
+							<form method="POST" th:action="@{/user/gerarPedido}" enctype="multipart/form-data">
+								<button type="submit" class="btn btn-outline-primary card-button"><i class="fas fa-plus  m-2 mt-0 mb-0"></i> Nova solicitação</button>
+							</form>	
+						</div>
+					</div>
+			 	</div>			
+			</div>
+			
+		</div>
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>
+	

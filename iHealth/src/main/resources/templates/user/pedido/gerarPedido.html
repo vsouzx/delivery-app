@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	
+	<body>
+
+		<div th:replace="~{templates :: header}"></div>
+	
+		<div class="container">
+	
+			<div>
+				<h2 class="text-center mb-3"> Seu pedido foi gerado!</h2>
+				<a th:href="@{/user/pedido/{id}(id=${pedido.id})}" class="btn btn-outline-primary card-button mb-3"><i class="fas fa-pills m-2 mt-0 mb-0"></i>Clique aqui para prosseguir</a>
+				<a th:href="@{/user/cancelarPedido/{id}(id=${pedido.id})}" class="btn btn-outline-danger card-button mb-3"><i class="fas fa-ban m-2 mt-0 mb-0"></i>Cancelar</a>
+			</div>
+		</div>
+		
+		<footer th:replace="~{templates :: footer}"></footer>
+	
+</body>
+</html>

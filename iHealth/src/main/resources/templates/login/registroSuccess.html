@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="~{templates :: head}"></head>
+
+<body>
+
+	<nav class="bg-success mb-3 p-2" style="color: white">
+		<div class="text-center">
+			<a th:href="@{/home}" class="header-title">Delivery SUS<i
+				class="fas fa-laptop-medical m-2 mt-0 mb-0"></i></a>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="text-center" id="success">
+			<header class="container text-center">
+				<div class="mb-3 mt-3">
+					<h1>Você foi cadastrado com sucesso!</h1>
+				</div>
+				<nav>
+					<h4><a class="btn btn-outline-primary" th:href="@{/login}">Clique aqui para fazer login.</a></h4>
+				</nav>
+			</header>
+		</div>
+		
+	</div>
+	<footer th:replace="~{templates :: footer}"></footer>
+</body>
+</html>

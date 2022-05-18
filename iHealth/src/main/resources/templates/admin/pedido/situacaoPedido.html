@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+<body>
+
+	<div th:replace="~{templates :: header}"></div>
+
+	<div class="container">
+		
+		<h1 style="font-size: 1.3em" class="text-center mb-3">
+			Número do pedido: <span th:text="${pedido.id}"></span>
+		</h1>
+
+
+		<div class="card mb-3 shadow-nova">
+
+			<div class="card-header"><b>Lista de remédios solicitados</b></div>
+				<nav th:each="remedio : ${pedidoRemedios}" class="navbar navbar-light bg-light p-2">
+					<span th:text="${remedio.nome}" class=""></span>
+					
+					<a class="navbar-brand" href="#"> <img class="p-0 m-0"
+						alt="Image" th:src="@{/admin/imagem/{id}(id=${remedio.id})}"
+						width="30" height="35" /> 
+					</a>
+				</nav>
+		</div>
+		
+		<div style="text-align:center" class="mb-3">
+			<img class="img-receita-detalhe" alt="Image" th:src="@{/user/imagem/{id}(id=${pedido.id})}" width=100% height="300" />
+			<p>Status atual:  <b><span th:text="${pedido.status.name}"></span></b></p>
+		</div>		
+		
+		<form th:object="${pedido}" class="mb-3 text-center "
+			th:action="@{/admin/salvarPedido/{id}(id=${pedido.id})}" method="POST"  enctype="multipart/form-data">
+			
+			<input type="hidden" th:field="*{id}"/>
+			<div class="form-group row mb-3">
+				<div class="col-12" style="text-align: left">
+					<label class="col-form-label" for="statusFile">Defina o novo status desse pedido</label>
+				</div>	
+				<div>
+					<select class="form-select shadow-nova" name="status"  required>
+				 		<option disabled selected value="">Select a status</option>
+		    			<option th:each="status : ${T(br.com.anhembi.iHealth.modelo.Status).values()}" th:value="${status}" th:text="${status}"></option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="mb-3">
+				<button type="submit" class="btn btn-outline-primary card-button shadow-nova"	style="width: 100%">Atualizar status</button>
+			</div>
+		</form>
+		
+		<a th:href="@{/admin/pedidosAdmin}" class="btn btn-outline-dark mb-3 card-button shadow-nova">Voltar</a>
+	</div>
+
+	<footer th:replace="~{templates :: footer}"></footer>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	<body>
+
+	<div th:replace="~{templates :: header}"></div>
+	
+	<div class="container">
+		
+		<div class="text-center mb-2">
+			<a th:href="@{/admin/postoForm}" class="btn btn-outline-primary card-button  shadow-nova mb-3 "><i class="fas fa-plus m-2 mt-0 mb-0"></i>Cadastrar novo posto de saúde</a>
+			<a class="btn btn-outline-dark card-button mb-3 shadow-nova" th:href="@{/home}" style="width: 100%">Voltar</a>
+		</div>
+		
+		<div class="text-center" th:each="posto : ${postos}">
+			<div class="row">
+				<div class="col-12">
+					<p th:text="${posto.nome}" style="font-weight: bold; text-align: center; margin: 0;" >Nome do Posto</p>
+				</div>
+				<div class="col-12 mb-2" >
+					<p th:text="${posto.endereco}" class="card-descricao" style="text-align: center; margin: 0;" >Região do posto</p>
+				</div>
+				<div class="col-12 mb-2"> 
+					<div class="row">
+						<div style="text-align:center" class="col-6 m-0">
+								<img class="posto-img-maps"alt="Image" th:src="@{/admin/imagemPosto/{id}(id=${posto.id})}" width=100% height="150" />
+							</div>
+						<div class="col-6 m-0">
+							<iframe class="posto-img-maps" th:src="${posto.urlMapa}" width=100% height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						</div>
+					</div>
+					
+			
+				</div>
+				<div class="col-12 mb-2">
+					<a th:href="@{/admin/listaDeRemedios/{id}(id=${posto.id})}" class="btn btn-outline-success card-button shadow-nova"><i class="fas fa-pills m-2 mt-0 mb-0"></i>Visualizar medicamentos disponíveis</a>
+				</div>
+				<div class="col-6">
+					<a th:href="@{/admin/editarPosto/{id}(id=${posto.id})}" class="btn btn-outline-light card-button shadow-nova"><i class="fas fa-pen edit-icon"></i></a>
+				</div>
+				<div class="col-6">
+					<a th:href="@{/admin/deletarPosto/{id}(id=${posto.id})}" class="btn btn-outline-light card-button shadow-nova"><i class="fas fa-trash delete-icon"></i></a>
+				</div>
+			</div>
+			<hr>
+		</div>
+		
+	</div>
+	
+	<footer th:replace="~{templates :: footer}"></footer>
+	
+	
+</body>
+</html>

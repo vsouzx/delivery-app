@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+
+<body>
+	<div th:replace="~{templates :: header}"></div>
+
+	<div class="container">
+
+		<div class="text-center">
+			<h4>Novo medicamento</h4>
+		</div>
+		<div class="card shadow-nova">
+			<div class="card-body">
+				<form th:object="${remedio}" method="POST" th:action="@{/admin/cadastrarMedicamento}" enctype="multipart/form-data">
+					<div>
+					<input type="hidden" th:field="*{id}"/>
+						<div class="form-group row mb-3 ">
+							<div class="col-12 col-sm-12">
+								<label class="col-form-label">Nome</label>
+							</div>
+
+							<div class="col-12 col-sm-12">
+								<input class="form-control  shadow-nova" type="text" th:field="*{nome}" required/>
+								
+							</div>
+
+						</div>
+						<div class="form-group row mb-3">
+							<div class=" col-12 col-sm-12">
+								<label class="col-form-label" for="imagem">Imagem do medicamento</label>
+							</div>
+							<div class="col-12 col-sm-12">
+								<input class="form-control  shadow-nova" type="file" id="imagem" name="imagemFile" required/>
+							</div>
+						</div>
+						<div class="mb-3">
+							<button type="submit" class="btn btn-outline-primary card-button  shadow-nova"
+								style="width: 100%">Cadastrar</button>
+						</div>
+
+						<div class="mb-3">
+							<a class="btn btn-outline-dark card-button  shadow-nova"
+								th:href="@{/admin/medicamentos}" style="width: 100%">Voltar</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<footer th:replace="~{templates :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,508 @@
+.custom-toggler .navbar-toggler-icon {
+	font-size: 0.7em;
+	background-image:
+		url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.trash{
+	color:#B22222;
+	font-size:1.5em;
+	transition: all 0.5s;
+}
+
+.trash:hover{
+	color:#FF0000;
+}
+.shadow-nova {
+	box-shadow: 1px 1px 2px black;
+}
+.shadow-nova-branca {
+	box-shadow: 0px 0px 8px 1px white;
+	transition: all .5s;
+}
+
+.shadow-nova-branca:hover {
+	box-shadow: 0px 0px 5px 5px white;
+	transition: all .5s;
+}
+
+.header-title {
+	font-size: 1.3em;
+	color: white;
+	text-decoration: none;
+	letter-spacing: 3px;
+	transition: all .5s;
+}
+
+.header-title:hover {
+	text-shadow: 2px 1px black;
+	color: white;
+	text-decoration: none;
+	letter-spacing: 5px;
+	cursor: pointer;
+	transition: all .5s;
+}
+
+.welcome-text {
+	font-size: 0.7em;
+}
+.form-text {
+	font-size: 1em;
+}
+
+.header-color {
+	background: rgba(0, 138, 68, 1);
+}
+
+
+.card-descricao {
+	font-size: 1em;
+}
+
+.card-button {
+	width: 100%;
+	font-weight: bolder;
+	font-size: 0.7em;
+}
+
+.telas-vazio-fontsize {
+	font-size: 0.8em;
+}
+
+.select-cadastro {
+	width: 100%;
+}
+
+.delete-icon {
+	color: red;
+}
+
+.edit-icon {
+	color: black;
+}
+
+footer {
+	margin-top: auto;
+}
+
+.text-footer {
+	text-decoration: none;
+}
+
+.text-footer-nome {
+	color: white;
+	letter-spacing: 3px;
+	text-decoration: none;
+	transition: all .5s;
+	font-weight: bold;
+}
+
+.text-footer-nome:hover {
+	color: white;
+	letter-spacing: 4px;
+	text-decoration: none;
+	font-weight: bold;
+	text-shadow: 2px 1px black;
+}
+
+html {
+	height: 100%;
+	min-height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+.lista-pedido{
+	font-weight: bold;
+	font-size: 1em;
+}
+
+.btn{
+	transition: all .5s;
+}
+
+.tela-login{
+	width: 80%;
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.td-formatted-id {
+	min-width: 25px;
+	max-width: 25px;
+	overflow: hidden;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+
+.td-formatted-enabled {
+	min-width: 40px;
+	max-width: 40px;
+	overflow: hidden;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+
+.td-formatted-name {
+	min-width: 40px;
+	max-width: 40px;
+	overflow: hidden;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+.td-formatted-name:hover {
+	min-width: 40px;
+	max-width: 40px;
+	overflow: auto;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+
+.td-formatted-button {
+	min-width: 80px;
+	max-width: 80px;
+	overflow: hidden;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+
+.td-formatted {
+	min-width: 110px;
+	max-width: 110px;
+	overflow: hidden;
+	text-align: center;
+	transition: all ease 0.7s;
+}
+
+.td-formatted:hover {
+	min-width: 110px;
+	max-width: 110px;
+	overflow: auto;
+	text-align: center;
+	white-space: initial;
+}
+
+#perfil{
+	border-radius: 50%;
+	font-size: 1em;
+}
+
+.perfil-text{
+	text-decoration: none;
+	font-style: none;
+	color: white;
+	margin-right: 0.5em;
+}
+
+.perfil-text:hover{
+	text-decoration: none;
+	font-style: none;
+	color: white;
+}
+.ativo{
+	transition: all .5;
+}
+.ativo:hover{
+	font-weight: bolder;
+	transition: all .5;
+}
+#success{
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.text-transparent{
+	display: none;
+}
+
+.img-perfil{
+	border-radius: 50%;
+}
+.img-perfil-grande{
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+}
+.logout-button{
+	color: white;
+	font-weight: bolder;
+	transition: all .5s;
+	font-style: none;
+	text-decoration: none;
+	padding-right: 10px;
+	font-size: 0.7em;
+}
+
+.logout-button:hover{
+	color: white;
+	letter-spacing: 2px;
+	transition: all .5s;
+}
+
+.page-item{
+	transition: all .5s;
+	font-size: 0.4em;
+}
+
+.page-link{
+	color:black;
+	transition: all .5s;
+	
+}
+
+.page-link:hover {
+    z-index: 2;
+    color: white !important;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    border-color: #dee2e6;
+}
+.page-item.active .page-link {
+	background-color: rgb(0,0,0) !important;
+    border-color: #353535;
+}
+.navigation{
+	
+	font-size: 0.4em;
+}
+
+
+@media only screen and (max-width: 1920px) and (min-width: 600px) {
+	
+	.tela-login{
+	min-width: 600px;
+	max-width: 600px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+	#register-form{
+	min-width: 600px;
+	max-width: 600px;
+	margin: auto;
+	}
+}
+
+
+@media only screen and (max-width: 900px) and (min-width: 760px){
+	
+	.header-title {
+	font-size: 1.6em;
+	color: white;
+	text-decoration: none;
+	letter-spacing: 3px;
+	transition: all .5s;
+}
+.posto-img-maps{
+	width: 100%;
+	height: 200px;
+}
+.img-medicamento{
+	width: 80%;
+	height: 260px;
+}
+
+.img-receita{
+	width: 100%;
+	height: 260px;
+}
+
+.img-receita-detalhe{
+	width: 80%;
+	height: 500px;
+}
+
+.logout-button {
+	font-size: 1em;
+}
+
+.card-descricao {
+	font-size: 1em;
+}
+
+.card-button {
+	width: 100%;
+	font-weight: bolder;
+	font-size: 0.9em;
+}
+
+.telas-vazio-fontsize {
+	font-size: 0.9em;
+}
+
+
+.header-title:hover {
+	text-shadow: 2px 1px black;
+	color: white;
+	text-decoration: none;
+	letter-spacing: 5px;
+	cursor: pointer;
+	transition: all .5s;
+}
+
+.welcome-text {
+	font-size: 0.9em;
+}
+
+.login-title{
+	font-size: 1.4em;
+}
+
+.img-perfil-grande{
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+}
+
+@media only screen and (max-width: 1300px) and (min-width: 900px){
+
+.posto-img-maps{
+	width: 100%;
+	height: 250px;
+}
+
+.img-medicamento{
+	width: 80%;
+	height: 260px;
+}
+
+.img-receita{
+	width: 100%;
+	height: 260px;
+}
+
+.img-receita-detalhe{
+	width: 80%;
+	height: 600px;
+}
+
+.logout-button {
+	font-size: 1em;
+}
+
+.card-descricao {
+	font-size: 1em;
+}
+
+.card-button {
+	width: 100%;
+	font-weight: bolder;
+	font-size: 1em;
+}
+
+.telas-vazio-fontsize {
+	font-size: 1em;
+}
+
+.header-title {
+	font-size: 1.8em;
+	color: white;
+	text-decoration: none;
+	letter-spacing: 3px;
+	transition: all .5s;
+}
+
+.header-title:hover {
+	text-shadow: 2px 1px black;
+	color: white;
+	text-decoration: none;
+	letter-spacing: 5px;
+	cursor: pointer;
+	transition: all .5s;
+}
+
+.welcome-text {
+	font-size: 1.1em;
+}
+
+.login-title{
+	font-size: 1.6em;
+}
+.img-perfil-grande{
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+}
+}
+
+@media only screen and (max-width: 1920px) and (min-width: 1300px){
+
+.posto-img-maps{
+	width: 100%;
+	height: 320px;
+}
+
+.img-medicamento{
+	width: 80%;
+	height: 260px;
+}
+
+.img-receita{
+	width: 80%;
+	height: 320px;
+}
+.img-receita-detalhe{
+	width: 80%;
+	height: 600px;
+}
+.logout-button {
+	font-size: 1em;
+}
+
+.card-descricao {
+	font-size: 1em;
+}
+
+.card-button {
+	width: 100%;
+	font-weight: bolder;
+	font-size: 1em;
+}
+
+.telas-vazio-fontsize {
+	font-size: 1em;
+}
+
+.header-title {
+	font-size: 1.8em;
+	color: white;
+	text-decoration: none;
+	letter-spacing: 3px;
+	transition: all .5s;
+}
+
+.header-title:hover {
+	text-shadow: 2px 1px black;
+	color: white;
+	text-decoration: none;
+	letter-spacing: 5px;
+	cursor: pointer;
+	transition: all .5s;
+}
+
+.welcome-text {
+	font-size: 1.1em;
+}
+
+.login-title{
+	font-size: 1.6em;
+}
+.img-perfil-grande{
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+}
+}
+
+
+

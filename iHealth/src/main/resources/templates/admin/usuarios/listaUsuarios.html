@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+
+<body>
+	<div th:replace="~{templates :: header}"></div>
+
+	<div class="container">
+
+		<div style="overflow: scroll;" class="mt-3">
+			<table class="table table-stripped shadow-nova card-descricao">
+				<thead class="table-light">
+					<tr style="text-align: center">
+						<th scope="col">Id</th>
+						<th scope="col">Nome</th>
+						<th scope="col">Sobrenome</th>
+						<th scope="col">CPF</th>
+						<th scope="col">CNS</th>
+						<th scope="col">E-mail</th>
+						<th scope="col">Senha</th>
+						<th scope="col">Região</th>
+						<th scope="col">Permissão</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr style="text-align: center" th:each="usuario : ${usuarios}">
+						<td class="td-formatted-id" th:text="${usuario.id}"></td>
+						<td class="td-formatted-name"th:text="${usuario.nome}"></td>
+						<td class="td-formatted-name"th:text="${usuario.sobrenome}"></td>
+						<td class="td-formatted"th:text="${usuario.cpf}"></td>
+						<td class="td-formatted"th:text="${usuario.codSus}"></td>
+						<td class="td-formatted"th:text="${usuario.email}"></td>
+						<td class="td-formatted"th:text="${usuario.password}"></td>
+						<td class="td-formatted"th:text="${usuario.regiao.nome}"></td>
+						<td class="td-formatted-name"th:text="${usuario.roles}"></td>
+						<td><a th:href="@{/admin/user/excluir/{id}(id=${usuario.id})}" class="btn card-button "><i class="fas fa-trash delete-icon"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div>
+			<a th:href="@{/home}"
+				class="btn btn-outline-dark mb-3 mt-3 card-button shadow-nova">Voltar para o menu</a>
+		</div>
+	</div>
+
+	<footer th:replace="~{templates :: footer}"></footer>
+	
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{templates :: head}"></head>
+
+<body>
+	<div th:replace="~{templates :: header}"></div>
+
+	<div class="container">
+
+		<div class="text-center mb-3">
+			<h4>Nova região</h4>
+		</div>
+		<div class="card shadow-nova mb-3">
+			<div class="card-body">
+				<form th:object="${regiaoForm}" method="POST"
+					th:action="@{/admin/cadastrarRegiao}">
+					<div>
+					
+					<div class="form-group">
+							<label class="form-label" for="pergunta">Região:</label>
+							<textarea th:field="*{nome}" th:errorclass="is-invalid" class="form-control mb-2" rows="3"placeholder="Digite o nome da região" ></textarea>
+							<div class="invalid-feedback mb-3" th:errors="*{nome}">
+							</div>
+						</div>
+						
+						<div class="mb-3">
+							<button type="submit" class="btn btn-outline-primary card-button shadow-nova"
+								style="width: 100%">Cadastrar</button>
+						</div>
+
+						<div class="mb-3">
+							<a class="btn btn-outline-dark card-button shadow-nova"
+								th:href="@{/admin/regioes}" style="width: 100%">Voltar para o menu</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="~{templates :: footer}"></footer>
+</body>
+</html>

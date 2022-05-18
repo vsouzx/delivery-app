@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	<body>
+
+	<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container"> 
+			<div class="card shadow p-3 mb-5 bg-body rounded" >
+				<form th:object="${requisicaoNovoComentario}" class="card-body " th:action="@{/comentario/novo}" method="post">
+				
+				<div class="form-group">
+					<label class="form-label card-descricao" for="pergunta">Dúvida:</label>
+					<textarea th:field="*{pergunta}" th:errorclass="is-invalid" class="form-control mb-2" rows="3"placeholder="Digite a sua dúvida/sugestão" ></textarea>
+					<div class="invalid-feedback" th:errors="*{pergunta}">
+					</div>
+				</div>
+					<div class="row mt-2">
+						
+						<div class="col-6 d-grid ">
+							<a class="btn btn-dark card-button" th:href="@{/comentario/homeComentarios}">Voltar</a>
+						</div>
+						
+						<div class="col-6 d-grid ">
+							<input class="btn btn-success card-descricao card-button" type="submit"/>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

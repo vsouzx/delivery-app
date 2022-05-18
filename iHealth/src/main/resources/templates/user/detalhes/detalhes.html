@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+
+	<body>
+	
+		<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container text-center">
+		
+			<div class="mb-3 mt-2">
+			
+				<div th:if="${user.foto == null}">
+					<a th:href="@{/perfil/detalhes}" class="btn btn-outline-dark" style="border-radius: 50%"><i class="fas fa-user" style="font-size: 3em;"></i></a>
+				</div>
+				<div th:if="${user.foto != null}">
+					<img class="p-0 m-0 img-perfil-grande shadow-nova-branca" alt="Image" th:src="@{/perfil/imagem/{id}(id=${user.id})}"/>
+				</div>
+				
+				
+				<h4>Meu perfil</h4>
+			</div>
+			
+				<div class="card-body">	
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:value="${user.nome}" readonly="readonly" name="nome"/>
+						<label for="nome">Primeiro nome</label>
+					</div>
+						
+					
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:value="${user.sobrenome}"  readonly="readonly"/>
+						<label for="sobrenome">Último nome</label>
+					</div>
+						
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:value="${user.cpf}"  readonly="readonly"/>
+						<label for="cpf">CPF</label>
+					</div>
+					
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:value="${user.codSus}"  readonly="readonly"/>
+						<label for="codSus">Cartão Nacional de Saúde</label>
+					</div>
+							
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:value="${user.endereco}"  readonly="readonly"/>
+						<label for="endereco">Endereço</label>
+					</div>
+					
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:value="${user.email}"  readonly="readonly"/>
+						<label for="email">Email</label>
+					</div>
+							
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:value="${user.password}"  readonly="readonly"/>
+						<label for="password">Senha</label>
+					</div>
+					
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:value="${user.regiao.nome}"  readonly="readonly"/>
+						<label for="regiao">Região</label>
+					</div>
+						
+					<div class="mb-3">
+						<a class="btn btn-outline-primary card-button" th:href="@{/perfil/editar}" style="width: 100%">Editar dados pessoais</a>
+					</div>
+					
+					<div class="mb-3">
+						<a class="btn btn-outline-primary card-button" th:href="@{/perfil/editarSenha}" style="width: 100%">Alterar senha</a>
+					</div>
+					
+					<div class="mb-3">
+						<a class="btn btn-outline-primary card-button" th:href="@{/perfil/editarFoto}" style="width: 100%">Alterar foto de perfil</a>
+					</div>
+					
+					<div class="mb-3">
+						<a class="btn btn-outline-dark card-button" th:href="@{/home}"  style="width: 100%">Voltar</a>
+					</div>
+				</div>
+		</div>
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>

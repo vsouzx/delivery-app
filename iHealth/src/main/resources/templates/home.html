@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	<body>
+
+	<div th:replace="~{templates :: header}"></div>
+	
+	<div class="container">
+		<div sec:authorize="hasAuthority('USER')"class="card text-center shadow-nova mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 card-descricao">
+						<p>Solicite um novo medicamento</p>
+					</div>
+					<div class="col-12">
+						<form method="POST" th:action="@{/user/gerarPedido}" enctype="multipart/form-data">
+							<button type="submit" class="btn btn-outline-primary card-button"><i class="fas fa-plus  m-2 mt-0 mb-0"></i> Nova solicitação</button>
+						</form>	
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div sec:authorize="hasAuthority('USER')"class="card text-center shadow-nova mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 card-descricao">
+						<p>Veja seus pedidos que foram finalizados, estão em andamento ou foram recusados</p>
+					</div>
+					<div class="col-12">
+						<a th:href="@{user/pedidos}" class="btn btn-outline-primary card-button"><i class="fas fa-list m-2 mt-0 mb-0"></i>Meus pedidos</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div sec:authorize="hasAuthority('USER')"class="card text-center shadow-nova mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 card-descricao">
+						<p>Veja os postos localizados na sua região</p>
+					</div>
+					<div class="col-12">
+						<a  th:href="@{user/postos}" class="btn btn-outline-primary card-button"><i class="fas fa-map m-2 mt-0 mb-0"></i>Postos próximos</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div sec:authorize="hasAuthority('USER')"class="card text-center shadow-nova mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 card-descricao">
+						<p>Para dúvidas, sugestões e reclamações</p>
+					</div>
+					<div class="col-12">
+						<a th:href="@{comentario/homeComentarios}" class="btn btn-outline-primary card-button"><i class="fas fa-question-circle m-2 mt-0 mb-0"></i>Duvidas/Sugestões</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div sec:authorize="hasAuthority('ADMIN')" class="card text-center shadow-nova mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 card-descricao">
+						<p>Usuários cadastrados</p>
+					</div>
+					<div class="col-12">
+						<a th:href="@{admin/usuarios}" class="btn btn-outline-primary card-button"><i class="fas fa-user m-2 mt-0 mb-0"></i></i>Visualizar usuários</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div sec:authorize="hasAuthority('ADMIN')" class="card text-center shadow-nova mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 card-descricao">
+						<p>Postos cadastrados</p>
+					</div>
+					<div class="col-12">
+						<a th:href="@{/admin/postos}" class="btn btn-outline-primary card-button"><i class="fas fa-building m-2 mt-0 mb-0"></i>Visualizar postos</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div sec:authorize="hasAuthority('ADMIN')"  class="card text-center shadow-nova mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 card-descricao">
+						<p>Medicamentos cadastrados</p>
+					</div>
+					<div class="col-12">
+						<a th:href="@{admin/medicamentos}" class="btn btn-outline-primary card-button"><i class="fas fa-pills m-2 mt-0 mb-0"></i>Visualizar medicamentos</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div sec:authorize="hasAuthority('ADMIN')"  class="card text-center shadow-nova mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 card-descricao">
+						<p>Regiões cadastradas</p>
+					</div>
+					<div class="col-12">
+						<a th:href="@{admin/regioes}" class="btn btn-outline-primary card-button"><i class="fas fa-map-pin m-2 mt-0 mb-0"></i>Visualizar regiões</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div sec:authorize="hasAuthority('ADMIN')"  class="card text-center shadow-nova mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 card-descricao">
+						<p>Administrar Pedidos</p>
+					</div>
+					<div class="col-12">
+						<a th:href="@{admin/pedidosAdmin}" class="btn btn-outline-primary card-button"><i class="fas fa-list m-2 mt-0 mb-0"></i>Pedidos</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div sec:authorize="hasAuthority('ADMIN')"  class="card text-center shadow-nova mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 card-descricao">
+						<p>Dúvidas/Sugestões</p>
+					</div>
+					<div class="col-12">
+						<a th:href="@{comentario/homeComentarios}" class="btn btn-outline-primary card-button"><i class="fas fa-question-circle m-2 mt-0 mb-0"></i>Dúvidas/Sugestões</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	
+	<footer th:replace="~{templates :: footer}"></footer>
+	
+</body>
+</html>

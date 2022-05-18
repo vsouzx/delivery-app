@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+
+	<body>
+	
+		<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container text-center">
+		
+			<div class="mb-2">
+				<div th:if="${user.foto == null}">
+					<a th:href="@{/perfil/detalhes}" class="btn btn-outline-dark" style="border-radius: 50%"><i class="fas fa-user" style="font-size: 3em;"></i></a>
+				</div>
+				<div th:if="${user.foto != null}">
+					<img class="p-0 m-0 img-perfil-grande shadow-nova-branca" alt="Image" th:src="@{/perfil/imagem/{id}(id=${user.id})}"/>
+				</div>
+				<h4>Editar dados pessoais</h4>
+			</div>
+				
+				
+				
+				<form class="card-body"th:object="${user}" th:action="@{/perfil/atualizar}" method="post" enctype="multipart/form-data">	
+					<input class="form-control shadow-nova" type="hidden" th:field="*{id}" name="id" />
+					
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:field="*{nome}" onkeypress="return apenasLetras();" required/>
+						<label for="nome">Primeiro nome</label>
+					</div>
+						
+					
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:field="*{sobrenome}" onkeypress="return apenasLetras();" required/>
+						<label for="sobrenome">Último nome</label>
+					</div>
+						
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:field="*{cpf}" minlength="15" maxlength="11" onkeypress="return onlynumber();" onblur="validarCPF(this)" required/>
+						<label for="cpf">CPF</label>
+					</div>
+					
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:field="*{codSus}" minlength="15" maxlength="15" onkeypress="return onlynumber();" required/>
+						<label for="codSus">Cartão Nacional de Saúde</label>
+					</div>
+							
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="text" th:field="*{endereco}" required/>
+						<label for="endereco">Endereço</label>
+					</div>
+					
+					<div class="form-floating mb-3" style="text-align: left">
+						<input class="form-control shadow-nova" type="email" th:field="*{email}" required/>
+						<label for="email">Email</label>
+					</div>
+							
+					<div class="form-floating mb-3"style="text-align: left">
+						<select class="form-select shadow-nova mb-3" name="regiaoField" required>
+							<option class="text-transparent" th:text="${user.regiao.nome}" selected></option>
+							<option  th:each="regiao : ${regioes}" th:text="${regiao.nome}" ></option>
+						</select>	
+						<label class="col-form-label">Região</label>
+					</div>
+						
+					<div class="mb-3">
+						<button type="submit" class="btn btn-outline-success card-button" style="width: 100%">Atualizar dados pessoais</button>
+					</div>
+					
+					<div class="mb-3">
+						<a class="btn btn-outline-danger card-button" th:href="@{/perfil/detalhes}"  style="width: 100%">Voltar</a>
+					</div>
+			</form>
+		</div>
+		<footer th:replace="~{templates :: footer}"></footer>
+	
+	</body>
+</html>

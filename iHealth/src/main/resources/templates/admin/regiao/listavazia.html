@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container">
+		
+			<div class="card text-center card-descricao">
+			 	<div class="card-body">
+			 		<div class="row">
+						<div class="col-12">
+							<h2 class="">Não há nenhuma região cadastrada</h2>
+						</div>
+						<div class="col-12">
+							<a th:href="@{/admin/cadastroRegiaoForm}" class="btn btn-primary card-button shadow-nova"><i class="fas fa-plus  m-2 mt-0 mb-0"></i> Cadastrar região</a>
+						</div>
+					</div>
+			 	</div>			
+			</div>
+			
+		</div>
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>
+	

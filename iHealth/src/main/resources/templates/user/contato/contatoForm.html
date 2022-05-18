@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container">
+			<div class="text-center" >
+				<h1 style="font-size: 1.3em">Contate-nos!</h1>
+			</div>
+			
+			<div>
+			
+				<form  method="POST" th:action="@{/contato/enviarEmail}" enctype="multipart/form-data">
+					<div>
+					
+						<div class="form-group row mb-3 ">
+							<div class="col-12 col-sm-12">
+								<label class="col-form-label card-descricao" for="nome">Nome Completo</label>
+							</div>
+							<div class="col-12 col-sm-12">
+								<input required id="nome" class="form-control card-descricao shadow-nova" type="text" name="nomeUser" placeholder="Seu nome aqui..."/>		
+							</div>
+						</div>
+						
+						<div class="form-group row mb-3 ">
+							<div class="col-12 col-sm-12">
+								<label class="col-form-label card-descricao" for="email">E-mail</label>
+							</div>
+							<div class="col-12 col-sm-12">
+								<input required id="email" class="form-control card-descricao shadow-nova" type="email" name="emailUser" placeholder="Seu e-mail aqui..."/>		
+							</div>
+						</div>
+						
+						<div class="form-group row mb-3 ">
+							<div class="col-12 col-sm-12">
+								<label class="col-form-label card-descricao" for="subject">Assunto</label>
+							</div>
+							<div class="col-12 col-sm-12">
+								<input required id="subject" class="form-control card-descricao shadow-nova" type="text" name="subjectUser" placeholder="Assunto sobre..."/>		
+							</div>
+						</div>
+						
+						<div class="form-group row mb-3 ">
+							<div class="col-12 col-sm-12">
+								<label class="col-form-label card-descricao" for="mensagem">Mensagem</label>
+							</div>
+							<div class="col-12 col-sm-12">
+								<textarea required rows="5" class="form-control card-descricao shadow-nova" placeholder="Sua mensagem aqui..." name="userMsg"></textarea>		
+							</div>
+						</div>
+						
+						<div class="form-group row mb-3 ">
+							<div class="col-12 col-sm-12">
+								<label class="col-form-label card-descricao" for="mensagem">Anexos </label>
+							</div>
+							<div class="col-12 col-sm-12">
+								<input class="form-control card-descricao shadow-nova" type="file" name="anexo" />		
+							</div>
+						</div>
+						
+						<div class="mb-3">
+							<button type="submit" class="btn btn-outline-primary card-button shadow-nova"
+								style="width: 100%">Enviar e-mail</button>
+						</div>
+
+						<div class="mb-3">
+							<a class="btn btn-outline-dark card-button shadow-nova"
+								th:href="@{/home}" style="width: 100%">Voltar</a>
+						</div>
+						
+					</div>
+				</form>
+			</div>
+			
+		</div>
+		
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>

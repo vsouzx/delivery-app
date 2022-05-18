@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	<body>
+
+	<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container"> 
+			<div class=" "  sec:authorize="hasAnyAuthority('USER','ADMIN')">
+				<a th:href="@{/home}" class="btn btn-outline-dark  card-button mb-3 shadow-nova">Voltar</a>
+			</div>
+			
+			<div class="row mb-3 " >
+				<div  class="col-12  d-grid mx-auto" sec:authorize="hasAnyAuthority('ADMIN')">
+					<a th:href="@{/comentario/listarTodos}" th:classappend="${url} == 'comentarios' ? 'active'" class='btn btn-outline-primary card-button card-descricao'>Todas as dúvidas/sugestões</a>
+				</div>
+				<div  class="col-12   d-grid mx-auto" sec:authorize="hasAuthority('USER')">
+					<a th:href="@{/comentario/formComentario}" class="btn btn-success card-descricao card-button" >Nova dúvida/sugestão</a>	
+				</div>
+				<div  class="col-12 col-md-12 col-lg-6 mt-3  d-grid mx-auto" sec:authorize="hasAuthority('USER')">
+					<a th:href="@{/comentario/listarTodos}" th:classappend="${url} == 'comentarios' ? 'active'" class='btn btn-outline-primary card-descricao card-button'>Todos os comentários</a>
+				</div>
+				<div  class="col-12 col-md-12 col-lg-6 mt-3   d-grid mx-auto" sec:authorize="hasAuthority('USER')" >
+					<a th:href="@{/comentario/listarPorUsuario}" th:classappend="${url} == 'comentariosUsuario' ? 'active'" class='btn btn-outline-primary card-descricao card-button'>Meus comentários</a>
+				</div>
+			</div>
+						
+			<div class="card shadow p-3 mb-5 bg-body rounded" th:each="comentario : ${comentarios}">
+				<div class="card-body ">
+					<div class="d-flex justify-content-between">
+					
+						<div >
+							<div>
+							<i class="fas fa-address-card card-descricao"></i>
+							<span class="card-descricao"  th:text="${comentario.user}"></span>
+							</div>
+						</div>
+						
+						<div sec:authorize="hasAuthority('ADMIN')">
+							<a th:href="@{/comentario/excluir/{id}(id=${comentario.id})}" class="trash "  ><i class="fas fa-trash "></i></a>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<textarea th:text="${comentario.pergunta}" disabled class="form-control mb-2 card-descricao" rows="2" ></textarea>
+					</div>
+				</div>
+			</div>
+						
+			</div>
+			<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

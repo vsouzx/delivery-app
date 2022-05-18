@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	<body>
+
+	<div th:replace="~{templates :: header}"></div>
+		
+	<div class="container text-center">
+		<div class="login-title mb-3"> Página não encontrada (404)</div>
+		
+		<button onclick="goBack()" class="btn btn-outline-primary card-button mb-3 ">Voltar</button>
+		<a th:href="@{/home}" class="btn btn-outline-dark card-button mb-3">Menu</a>
+		
+	</div>
+	
+	<footer th:replace="~{templates :: footer}"></footer>
+	
+</body>
+</html>

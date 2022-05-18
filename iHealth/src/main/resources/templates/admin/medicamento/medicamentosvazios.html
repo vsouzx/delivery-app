@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container">
+		<a th:href="@{/home}" class="btn btn-outline-dark card-button mb-3 shadow-nova ">Voltar</a>
+			<div class="card  shadow-nova text-center">
+			 	<div class="card-body">
+			 		<div class="row">
+						<div class="col-12">
+							<h2 class="telas-vazio-fontsize">Não há medicamentos cadastrados 😅</h2>
+						</div>
+						<div class="col-12">
+							<a th:href="@{/admin/cadastroMedicamentoForm}" class="btn  shadow-nova btn-primary card-button"><i class="fas fa-plus  m-2 mt-0 mb-0"></i> Cadastrar medicamento</a>
+						</div>
+					</div>
+			 	</div>			
+			</div>
+			
+		</div>
+		
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>
+	

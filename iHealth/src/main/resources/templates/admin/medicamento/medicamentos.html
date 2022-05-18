@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{templates :: head}"></head>
+	
+	<body>
+		<div th:replace="~{templates :: header}"></div>
+		
+		<div class="container">
+		
+			<div>
+			<a th:href="@{/admin/cadastroMedicamentoForm}" class="btn btn-outline-primary mb-3 card-button shadow-nova">Novo remédio</a>
+			<a class="btn btn-outline-dark card-button mb-3 shadow-nova" th:href="@{/home}" style="width: 100%">Voltar</a>
+			</div>
+			
+			<div class="row">
+				<div class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6"  th:each="remedio : ${remedios}">
+					<div class="card mb-3 shadow-nova">
+						<div class="card-header bg-success text-white card-descricao" th:text="${remedio.nome}"></div>
+	
+						<div class="card-body">
+							<div class="row">
+								<div class="col-12">
+									<div style="text-align:center" class="mb-3">
+										<img class="img-medicamento" alt="Image" th:src="@{/admin/imagem/{id}(id=${remedio.id})}" width=60% height="180" />
+									</div>
+								</div>
+								<div class="col-6">
+									<a th:href="@{/admin/editarMedicamento/{id}(id=${remedio.id})}" class="btn btn-outline-light card-button shadow-nova"><i class="fas fa-pen edit-icon"></i></a>
+								</div>
+								<div class="col-6">
+									<a th:href="@{/admin/deletarMedicamento/{id}(id=${remedio.id})}" class="btn btn-outline-light card-button shadow-nova"><i class="fas fa-trash delete-icon"></i></a>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+	
+		
+		<footer th:replace="~{templates :: footer}"></footer>
+	</body>
+</html>
+	
