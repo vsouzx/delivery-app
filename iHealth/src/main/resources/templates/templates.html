@@ -30,6 +30,8 @@
 
 <div th:fragment="header">
 	<div class="header">
+
+		
 		<div class="collapse bg-success" style="transition: all 1s;" id="navbarToggleExternalContent">
 			<div class="bg-success p-3">
 				<nav class="navbar navbar-dark bg-success">
@@ -41,8 +43,8 @@
 				</nav>
 			</div>	
 		</div>
-
-		<nav class="navbar navbar-dark bg-success">
+		
+		<nav class="navbar navbar-dark bg-success mb-3">
 			<div class="container-fluid">
 				<button class="navbar-toggler ml-auto custom-toggler" type="button"
 					data-bs-toggle="collapse"
@@ -51,6 +53,9 @@
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
+				<div class="text-center">
+				<a th:href="@{/home}" class="header-title">Delivery MED<i class="fas fa-laptop-medical m-2 mt-0 mb-0"></i></a>
+				</div>
 				<div>
 					<div th:if="${user.foto != null}">
 						<a th:href="@{/perfil/detalhes}" class=""><img class="p-0 m-0 img-perfil shadow-nova-branca" alt="Image" th:src="@{/perfil/imagem/{id}(id=${user.id})}" width="55" height="55"/> </a>
@@ -62,13 +67,7 @@
 				
 			</div>
 		</nav>
-
-
-		<nav class="bg-success mb-3 p-2" style="color: white">
-			<div class="text-center">
-				<a th:href="@{/home}" class="header-title">Delivery MED<i class="fas fa-laptop-medical m-2 mt-0 mb-0"></i></a>
-			</div>
-		</nav>
+		
 	</div>
 </div>
 

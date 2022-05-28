@@ -6,6 +6,7 @@
 	<div th:replace="~{templates :: header}"></div>
 	
 	<div class="container">
+	<span id="typing"></span>
 		<div sec:authorize="hasAuthority('USER')"class="card text-center shadow-nova mb-3">
 			<div class="card-body">
 				<div class="row">
@@ -143,6 +144,5 @@
 	</div>
 	
 	<footer th:replace="~{templates :: footer}"></footer>
-	
 </body>
 </html>
