@@ -69,8 +69,8 @@ public class LoginController {
 		String encodedPassword = encoder.encode(password);
 		user.setPassword(encodedPassword);
 			
-		Role adminRole = roleRepository.findByName("USER");
-		user.setRoles(Arrays.asList(adminRole));
+		Role role = roleRepository.findByName("USER");
+		user.setRoles(Arrays.asList(role));
 	
 			
 		userRepository.save(user);

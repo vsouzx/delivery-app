@@ -13,11 +13,11 @@
 
 		<form class="mb-3 text-center"th:action="@{/user/associarRemedioPedido(idPedido=${pedido.id})}"method="POST">
 			<div class="row">
-				<div class="col-7">
-					<select name="id" class="form-select card-descricao" required>
+				<div class="col-7" >
+					<select name="id" class="form-select card-descricao"onmousedown="if(this.options.length>=6){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;" required >
 						<option value="">Clique e solicite um remédio...</option>
-						<option th:each="remedio :  ${remedios}" th:value="${remedio.id}" th:text="${remedio.nome}"></option>
-					</select> 
+						<option th:each="remedio :  ${remedios}" th:value="${remedio.id}" th:text="${remedio.nome}"></option>	
+				</select> 
 				</div>
 				<div class="col-5">
 					<input type="submit" class="btn btn-outline-success card-button" value="Solicitar">

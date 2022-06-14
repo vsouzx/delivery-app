@@ -36,7 +36,6 @@ public class UserForm {
 	private String password;
 	
 	@NotBlank
-	@Length(min = 10, max=100)
 	private String endereco;
 	
 	@NotBlank @NotNull
@@ -106,6 +105,7 @@ public class UserForm {
 	public void setRegiao(String regiao) {
 		this.regiao = regiao;
 	}
+	
 
 	public User converter(RegiaoRepository regiaoRepository) {
 		User user = new User();
